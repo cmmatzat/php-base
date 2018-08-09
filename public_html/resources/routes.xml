@@ -12,37 +12,47 @@
 </route>
 <route>
   <path>/test</path>
-  <dest>/page2.php</dest>
+  <dest>/test.php</dest>
   <minarg>1</minarg>
 </route>
 <route>
   <path>/argpage</path>
-  <dest>/page3.php</dest>
+  <dest>/argpage.php</dest>
   <minarg>3</minarg>
 </route>
 <route>
   <path>/nested/path</path>
-  <dest>/page4.php</dest>
+  <dest>/nestedpath.php</dest>
   <minarg>0</minarg>
 </route>
 <route>
   <path>/path</path>
-  <dest>/page5.php</dest>
+  <dest>/path.php</dest>
   <minarg>0</minarg>
 </route>
 <route>
   <path>/nested</path>
-  <dest>/page6.php</dest>
+  <dest>/nested.php</dest>
   <minarg>0</minarg>
 </route>
 <route>
   <path>/nested/path2</path>
-  <dest>/page7.php</dest>
+  <dest>/nestedpath2.php</dest>
   <minarg>0</minarg>
 </route>
 <route>
+  <path>/nested/path/3</path>
+  <dest>/nestedpath3.php</dest>
+  <minarg>2</minarg>
+</route>
+<route>
   <path>/nested</path>
-  <dest>/page8.php</dest>
+  <dest>/nested.php</dest>
   <minarg>1</minarg>
 </route>
+<default>
+  <path>/404</path>
+  <dest>/404.php</dest>
+  <minarg>0</minarg>
+</default>
 </routes>

@@ -3,6 +3,7 @@
 	{
 		private $request;
 		private $routes;
+		private $dest_route;
 
 		public function __construct($request)
 		{
@@ -15,25 +16,26 @@
 			{
 				$this->routes[] = new Route($route->path, $route->dest, $route->minarg);
 			}
+			$default_route = $route_xml->default;
+			$this->dest_route = new Route($default_route->path, $default_route->dest, $default_route->minarg);
 		}
 
 		public function route()
 		{
 			$uri = trim($this->request, '/');
 			$uri = explode('/', $uri);
+			$min_args = count($uri);
 			foreach ($this->routes as $route)
 			{
-				if ($route->uriMatch($uri))
+				$arg_count = $route->uriMatch($uri);
+				if ( ($arg_count > -1) && ($arg_count < $min_args) )
 				{
-					$args = array_shift($uri);
-					$route->goToDest($args);
-					break;
+					$min_args = $arg_count;
+					$this->dest_route = $route;
 				}
 			}
 
-			// Add error catch for no match found.
-
-
+			$this->dest_route->goToDest(array_slice($uri, $min_args));
 		}
 	}
 ?>

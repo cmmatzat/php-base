@@ -17,12 +17,13 @@
 			$route_path = trim($this->path, '/');
 			$route_path = explode('/', $route_path);
 			$route_len = count($route_path);
-			if (count($uri) < $route_len + $this->minarg)
+			$uri_len = count($uri);
+			if ($uri_len < ($route_len + $this->minarg))
 			{
-				return false;
+				return -1;
 			} else if ($uri[0] != $route_path[0])
 			{
-				return false;
+				return -1;
 			} else
 			{
 				$pos = 0;
@@ -31,10 +32,10 @@
 					$pos++;
 					if ($pos == $route_len)
 					{
-						return true;
+						return ($uri_len - $pos);
 					}
 				}
-				return false;
+				return -1;
 			}
 		}
 
