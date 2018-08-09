@@ -1,31 +1,34 @@
 <?php
     class Router
 	{
-		public function __construct()
-		{
+		private $request;
+		private $routes;
 
+		public function __construct($request)
+		{
+			$this->request = $request;
+
+			// Fill routes with lib content
 		}
 
-		public function route($raw_uri)
+		public function findRoute()
 		{
-			$request_uri = explode('?', $raw_uri, 2);
+			$uri = trim($this->request, '/');
+			$uri = explode('/', $uri);
+			foreach ($routes as &$route)
+			{
+				if ($route.uriMatch($uri))
+				{
+					$args = array_shift($uri);
+					$route.goToDestination($args);
+					break;
+				}
+			}
 
-		    switch ($request_uri[0])
-		    {
-		        // Home page
-		        case '/':
-		            echo "Home<br>";
-		            break;
-		        // About page
-		        case '/schedule':
-		            echo "Schedule<br>";
-		            break;
-		        // Everything else
-		        default:
-		            header('HTTP/1.0 404 Not Found');
-		            echo "404: Page Not Found";
-		            break;
-    		}
+			// Add error catch for no match found.
+
+
 		}
 	}
 ?>
+

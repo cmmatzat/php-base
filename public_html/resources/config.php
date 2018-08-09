@@ -12,4 +12,5 @@
 
   // Include custom classes
   include_once(LIBRARY_PATH . '/Router.php');
+  include_once(LIBRARY_PATH . '/Route.php');
 ?>
