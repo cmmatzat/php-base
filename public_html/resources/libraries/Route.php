@@ -1,20 +1,21 @@
 <?php
 	class Route
 	{
-		private $route;
-		private $destination;
-		private $takes_args;
+		public $path;
+		private $dest;
+		private $argc;
 
-		public function __construct($route, $destination, $takes_args)
+		public function __construct($path, $dest, $argc)
 		{
-			$this->route = $route;
-			$this->destination = $destination;
-			$this->takes_args = $takes_args;
+			$this->path = $path;
+			$this->dest = $dest;
+			$this->takes_args = $argc;
 		}
 
 		public function uriMatch($uri)
 		{
-			if ($uri[0] == trim($route, '/'))
+			//TODO: Add nested path support
+			if ($uri[0] == trim($this->path, '/'))
 			{
 				return true;
 			} else {
@@ -22,9 +23,9 @@
 			}
 		}
 
-		public function goToDestination($args)
+		public function goToDest($args)
 		{
-
+			echo "Going to " . $this->dest;
 		}
 	}
 ?>

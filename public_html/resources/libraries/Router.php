@@ -6,21 +6,27 @@
 
 		public function __construct($request)
 		{
+			echo $testing;
 			$this->request = $request;
-
-			// Fill routes with lib content
+			$this->routes = array();
+			$route_file = RESOURCES_PATH . '/routes.xml';
+			$route_xml = simplexml_load_file($route_file);
+			foreach ($route_xml as $route)
+			{
+				$this->routes[] = new Route($route->path, $route->dest, $route->argc);
+			}
 		}
 
-		public function findRoute()
+		public function route()
 		{
 			$uri = trim($this->request, '/');
 			$uri = explode('/', $uri);
-			foreach ($routes as &$route)
+			foreach ($this->routes as $route)
 			{
-				if ($route.uriMatch($uri))
+				if ($route->uriMatch($uri))
 				{
 					$args = array_shift($uri);
-					$route.goToDestination($args);
+					$route->goToDest($args);
 					break;
 				}
 			}
