@@ -13,7 +13,7 @@
 			$route_xml = simplexml_load_file($route_file);
 			foreach ($route_xml as $route)
 			{
-				$this->routes[] = new Route($route->path, $route->dest, $route->argc);
+				$this->routes[] = new Route($route->path, $route->dest, $route->minarg);
 			}
 		}
 

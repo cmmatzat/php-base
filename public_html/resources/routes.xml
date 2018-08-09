@@ -3,46 +3,46 @@
 <route>
   <path>/</path>
   <dest>/home.php</dest>
-  <argc>0</argc>
+  <minarg>0</minarg>
 </route>
 <route>
   <path>/page1</path>
   <dest>/page1.php</dest>
-  <argc>0</argc>
+  <minarg>0</minarg>
 </route>
 <route>
   <path>/test</path>
   <dest>/page2.php</dest>
-  <argc>1</argc>
+  <minarg>1</minarg>
 </route>
 <route>
   <path>/argpage</path>
   <dest>/page3.php</dest>
-  <argc>3</argc>
+  <minarg>3</minarg>
 </route>
 <route>
   <path>/nested/path</path>
   <dest>/page4.php</dest>
-  <argc>0</argc>
+  <minarg>0</minarg>
 </route>
 <route>
   <path>/path</path>
   <dest>/page5.php</dest>
-  <argc>0</argc>
+  <minarg>0</minarg>
 </route>
 <route>
   <path>/nested</path>
   <dest>/page6.php</dest>
-  <argc>0</argc>
+  <minarg>0</minarg>
 </route>
 <route>
   <path>/nested/path2</path>
   <dest>/page7.php</dest>
-  <argc>0</argc>
+  <minarg>0</minarg>
 </route>
 <route>
   <path>/nested</path>
   <dest>/page8.php</dest>
-  <argc>1</argc>
+  <minarg>1</minarg>
 </route>
 </routes>
