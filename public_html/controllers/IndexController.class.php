@@ -1,5 +1,5 @@
 <?php
-require_once(CONTROLLERS_PATH . "/Controller.class.php");
+require_once(CONTROLLER_PATH . "Controller.class.php");
 
 class IndexController extends Controller
 {	
@@ -20,4 +20,5 @@ class IndexController extends Controller
     }
 
 }
+
 ?>

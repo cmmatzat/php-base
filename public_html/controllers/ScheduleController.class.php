@@ -1,9 +1,9 @@
 <?php
-require_once(CONTROLLERS_PATH . "/Controller.class.php");
+require_once(CONTROLLER_PATH . "Controller.class.php");
 
 class ScheduleController extends Controller
-{	
-
+{
+  
     public function __construct()
     {
         parent::__construct();
@@ -20,4 +20,5 @@ class ScheduleController extends Controller
     }
 
 }
+
 ?>
