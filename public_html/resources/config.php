@@ -1,10 +1,9 @@
 <?php
 
   // Constants for heavily-used paths
-  defined('LIBRARY_PATH') or define('LIBRARY_PATH', $_SERVER["DOCUMENT_ROOT"] . '/resources/libraries');
-  defined('RESOURCES_PATH') or define('RESOURCES_PATH', $_SERVER["DOCUMENT_ROOT"] . "/resources" );
-
+  defined('FRAMEWORK_PATH') or define('FRAMEWORK_PATH', $_SERVER["DOCUMENT_ROOT"] . '/resources/framework' );
+  defined('CONTROLLERS_PATH') or define('CONTROLLERS_PATH', $_SERVER["DOCUMENT_ROOT"] . '/resources/controllers' );
+  
   // Include custom classes
-  include_once(LIBRARY_PATH . '/Router.php');
-  include_once(LIBRARY_PATH . '/Route.php');
+  include_once(FRAMEWORK_PATH . '/Router.class.php');
 ?>
